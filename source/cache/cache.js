@@ -1,5 +1,4 @@
 let cache = {}
-
 const startTime = (time) => {
   return formatTime(new Date(time).setHours(0, 0, 0, 0))
 }
@@ -11,7 +10,8 @@ const formatTime = (time) => {
 const setIntervalClearCache = () => {
   return setInterval(() => {
     if (startTime(new Date()) === formatTime(new Date().getTime())) {
-      cache = null
+      cache = {}
+      console.log('定时清除缓存')
     }
   }, 1000);
 }
@@ -20,6 +20,7 @@ const setIntervalClearCache = () => {
 const getData = (key) => {
   return new Promise((reslove, reject) => {
     setTimeout(() => {
+      i++;
       reslove(key)
     }, 200);
   })

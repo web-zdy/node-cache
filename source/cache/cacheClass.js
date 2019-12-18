@@ -31,6 +31,7 @@ class Cache {
 
   clearCache = () => {
     this.cache = {}
+    console.log('定时清除缓存')
   }
 
   setIntervalClearCache = () => {
